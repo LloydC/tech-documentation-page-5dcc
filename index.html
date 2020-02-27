@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Documentation Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav id="navbar">
+        <header>Ruby Documentation</header>
+        <ul>
+            <li><a href="#introduction" class="nav-link">Introduction</a></li>
+            <li><a href="#variables" class="nav-link">Variables</a></li>
+            <li><a href="#conditionals" class="nav-link">Conditionals</a></li>
+            <li><a href="#loops" class="nav-link">Loops</a></li>
+            <li><a href="#facts" class="nav-link">Interesting Facts</a></li>
+        </ul>
+    </nav>  
+   
+    <main id="main-doc">
+        <section class="main-section" id="introduction">
+            <header>Ruby| Introduction</header>
+            <p>
+                Ruby is an interpreted, high-level, dynamic, general-purpose, 
+                open source programming language which focuses on simplicity and productivity. 
+                It was designed and developed in the mid-1990s by Yukihiro Matsumoto (also known as 
+                Matz in the Ruby community) in Japan.
+            </p>
+        </section>
+        <section class="main-section" id="variables">
+            <header>Ruby | Types of Variables</header>
+            <p>There are different types of variables in Ruby:</p>
+            <ul>
+                <li>Local variables:
+                    <pre>
+                        age = 10
+                        _Age = 20
+                    </pre>
+                </li>
+                <li>Instance variables:
+                    <pre>
+                        # Ruby program to illustrate  
+                        # the Instance Variables 
+                        
+                        class Customer 
+                            
+                        def initialize(id, name, addr) 
+                            
+                        # Instance Variables      
+                        @cust_id = id 
+                        @cust_name = name 
+                        @cust_addr = addr 
+                        end
+                        
+                        # displaying result 
+                        def display_details() 
+                        puts "Customer id #@cust_id"
+                        puts "Customer name #@cust_name"
+                        puts "Customer address #@cust_addr"
+                        end
+                        end
+                        
+                        # Create Objects 
+                        cust1 = Customer.new("1", "John", "Wisdom Apartments, Ludhiya") 
+                        cust2 = Customer.new("2", "Poul", "New Empire road, Khandala") 
+                        
+                        # Call Methods 
+                        cust1.display_details() 
+                        cust2.display_details() 
+                    </pre>
+                </li>
+                <li>Class variables:
+                    <pre>
+                        # Ruby program to illustrate  
+                        # the Class  Variables 
+                        
+                        class Customer 
+                            
+                        # class variable 
+                        @@no_of_customers = 0
+                        
+                        def initialize(id, name, addr) 
+                            
+                        # An instance Variable 
+                        @cust_id = id 
+                        @cust_name = name 
+                        @cust_addr = addr 
+                        end
+                        
+                        # displaying result  
+                        def display_details() 
+                        puts "Customer id #@cust_id"
+                        puts "Customer name #@cust_name"
+                        puts "Customer address #@cust_addr"
+                        end
+                        
+                        def total_no_of_customers() 
+                            
+                        # class variable 
+                        @@no_of_customers += 1
+                        puts "Total number of customers: #@@no_of_customers"
+                            end
+                        end
+                        
+                        # Create Objects 
+                        cust1 = Customer.new("1", "John", "Wisdom Apartments, Ludhiya") 
+                        cust2 = Customer.new("2", "Poul", "New Empire road, Khandala") 
+                        
+                        # Call Methods 
+                        cust1.display_details() 
+                        cust1.total_no_of_customers() 
+                        cust2.display_details() 
+                        cust2.total_no_of_customers()
+                    </pre>
+                </li>
+                <li>Global variables:
+                    <pre>
+                        # Ruby program to illustrate  
+                        # the Global  Variables 
+
+                        # global variable 
+                        $global_variable = 10
+                        class Class1 
+                            def print_global 
+                            puts "Global variable in Class1 is #$global_variable"
+                            end
+                        end
+                        class Class2 
+                            def print_global 
+                            puts "Global variable in Class2 is #$global_variable"
+                            end
+                        end
+                        class1obj = Class1.new
+                        class1obj.print_global 
+                        class2obj = Class2.new
+                        class2obj.print_global
+                    </pre>
+                </li>
+            </ul>
+        </section>
+        <section class="main-section" id="conditionals">
+            <header>Ruby | Decision Making (if, if-else, if-else-if, ternary)</header>
+            <p>
+                Decision Making in programming is similar to decision making in real life. 
+                In programming too, a certain block of pre needs to be executed when some condition is fulfilled. 
+                A programming language uses control statements to control the flow of execution of the program based on certain conditions. 
+                These are used to cause the flow of execution to advance and branch based on changes to the state of a program
+            </p>
+            <br>
+            <p>
+                There are various ‘if’ statements in Ruby:      
+            </p>
+            <ul>
+                <li>if statement: 
+                    <pre>
+                    # Ruby program to illustrate if statement 
+  
+                    a = 20
+                      
+                    if a >= 18
+                      puts "You are eligible to vote."
+                    end
+                    </pre>
+                </li>
+                
+                <li>if-else statement:
+                    <pre>
+                        # Ruby program to illustrate  
+                        # if - else statement 
+                        
+                        a = 15
+                 
+                        if a >= 18
+                            puts "You are eligible to vote."
+                        else
+                            puts "You are not eligible to vote."
+                    </pre>
+                </li>
+                <li>if-else-if(elsif) statement:
+                    <pre>
+                        # Ruby program to illustrate the  
+                        # if - else - if statement 
+                        
+                        a = 78  
+                        if a  < 50   
+                            puts "Student is failed"  
+                        
+                        elsif a >= 50 && a <= 60   
+                            puts "Student gets D grade"  
+                        
+                        elsif a >= 70 && a <= 80   
+                            puts "Student gets B grade" 
+                            
+                        elsif a >= 80 && a <= 90   
+                            puts "Student gets A grade" 
+                            
+                        elsif a >= 90 && a <= 100   
+                            puts "Student gets A+ grade"    
+                        end
+                    </pre>
+                </li>
+                <li>Ternary statement: 
+                    <pre>
+                        # Ruby program to illustrate the  
+                        # Ternary statement 
+                
+                        var = 5; 
+                        
+                        a = (var > 2) ? true : false ; 
+                        puts a 
+                    </pre>
+                </li>
+            </ul>
+        </section>
+        <section class="main-section" id="loops">
+            <header>Ruby | Loops (for, while, do..while, until)</header>
+            <p>Looping in programming languages is a feature which clears the way for the execution
+                of a set of instructions or functions repeatedly when some of the condition evaluates 
+                to true or false. Ruby provides the different types of loop to handle the condition based 
+                situation in the program to make the programmers task simpler. 
+            </p>
+            <p>The loops in Ruby are :</p>
+            <div class="row">
+                <div class="left-section">
+                    <h3>While loop</h3>
+                    <pre>
+                        # Ruby program to illustrate 'while' loop 
+                        # variable x 
+                        x = 4
+                        
+                        # using while loop  
+                        # here condtional is x i.e. 4 
+                        while x >= 1 
+                        
+                        # statements to be executed 
+                        puts "GeeksforGeeks"
+                        x = x - 1
+                            
+                        # while loop ends here 
+                        end
+                    </pre>
+                </div>
+                <div class="right-section">
+                    <h3>For loop:</h3>
+                    <pre>
+                        # Ruby program to illustrate 'for'  
+                        # loop using range as expression 
+                        
+                        i = "Sudo Placements"
+                        
+                        # using for loop with the range 
+                        for a in 1..5 do
+                            
+                            puts i 
+                        
+                        end
+                    </pre>
+                </div>
+            </div>
+            <div class="row">
+                <div class="left-section">
+                    <h3>Do..While loop:</h3>
+                    <pre>
+                        # Ruby program to illustrate 'do..while'loop 
+                        # starting of do..while loop 
+                        loop do
+                            
+                        puts "GeeksforGeeks"
+                        
+                        val = '7'
+                        
+                        # using boolean expressions 
+                        if val == '7'
+                        break
+                        end
+                        
+                        # ending of ruby do..while loop  
+                        end
+                    </pre>
+                </div>
+                <div class="right-section">
+                    <h3>Until loop:</h3>
+                    <pre>
+                        # Ruby program to illustrate 'until' loop 
+                        var = 7
+                        
+                        # using until loop 
+                        # here do is optional 
+                        until var == 11 do
+                        
+                        # code to be executed 
+                        puts var * 10
+                        var = var + 1
+                            
+                        # here loop ends 
+                        end
+                    </pre>
+                </div>
+            </div>
+        </section>
+        <section class="main-section" id="facts">
+            <header>Ruby | Interesting facts about Ruby</header>
+            <p>Here are some interesting facts about Ruby:</p>
+            <br>
+            <ol>
+                <li>Ruby came into existence as Yukihiro Matsumoto, wanted a scripting language more powerful than Perl, and more object oriented than Python.</li>
+                <li>The name Ruby for the language got originated in an online chat session between Matsumoto and Keiju Ishitsuka on February 24, 1993 before even any code was written in the language. Initially two names were suggested ie Coral or Ruby. The name Ruby was later chosen by Matsumoto in an email to Ishitsuka.</li>
+                <li>Ruby is often confused with Ruby on Rails, which is a server-side framework written in Ruby under the MIT License for implementing web applications.</li>
+                <li>Ruby’s libraries and packages are managed through central library management system called Rubygems.</li>
+                <li>Ruby supports multiple programming paradigms, such as procedural programming, object-oriented programming, as well as functional programming, which makes it unique in the programming world.</li>
+                <li>Ruby Interpreter (Interactive Ruby/irb) can be used as a calculator.</li>
+                <li>Ruby has built in support for Rational numbers and Complex numbers, which helps in solving complex mathematical problems.</li>
+                <li>Ruby allows code embedding. For example, Ruby can be embedded into Hypertext Markup Language (HTML).</li>
+                <li>Ruby users can take the advantage of Dynamic typing and Duck typing.</li>
+                <li>Ruby understands and uses “nil” instead of “null”.</li>
+            </ol>
+        </section>
+    </main>
+    
+    <footer>
+        Made with &#x1F49B; by King Code
+    </footer>
+</body>
+</html>
